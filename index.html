@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G0LFS UPP</title>
+    <title>golfsupp • ransomware is not terrorism</title>
     
     <!-- Только Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,248 +18,280 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: #0a0a0a;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000000;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
-            color: #e0e0e0;
+            color: #ffffff;
         }
 
         .container {
-            max-width: 680px;
+            max-width: 800px;
             width: 100%;
         }
 
-        /* Карточка */
         .card {
-            background: #111111;
-            border: 1px solid #2a2a2a;
-            border-radius: 24px;
-            padding: 48px 40px;
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            border-radius: 32px;
+            padding: 60px 48px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        /* Аватар */
+        /* Аватар с пульсацией как стук сердца */
         .avatar-container {
             display: flex;
             justify-content: center;
-            margin-bottom: 32px;
+            margin-bottom: 40px;
         }
 
         .avatar {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #2a2a2a;
-            animation: softPulse 3s ease-in-out infinite;
+            border: 2px solid #1a1a1a;
+            animation: heartbeat 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
             cursor: pointer;
             transition: border-color 0.2s;
         }
 
         .avatar:hover {
-            border-color: #404040;
+            border-color: #333333;
         }
 
-        @keyframes softPulse {
+        @keyframes heartbeat {
             0%, 100% {
+                transform: scale(1);
                 box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1);
             }
-            50% {
-                box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.05);
+            25% {
+                transform: scale(1.08);
+                box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.05);
+            }
+            35% {
+                transform: scale(1);
+                box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.03);
+            }
+            45% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.04);
+            }
+            55% {
+                transform: scale(1);
+                box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.02);
             }
         }
 
-        /* Ник */
-        .handle {
-            font-size: 32px;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-            color: #ffffff;
+        /* Главный тезис */
+        .statement {
             text-align: center;
-            margin-bottom: 8px;
+            margin-bottom: 60px;
         }
 
-        .badge {
-            display: inline-block;
-            background: #1a1a1a;
-            border: 1px solid #333333;
-            color: #a0a0a0;
-            font-size: 13px;
-            font-weight: 500;
-            padding: 4px 12px;
-            border-radius: 100px;
-        }
-
-        /* Описание */
-        .bio {
-            color: #a0a0a0;
-            font-size: 16px;
-            line-height: 1.6;
-            text-align: center;
-            margin: 24px 0 32px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .divider {
-            height: 1px;
-            background: #2a2a2a;
-            margin: 32px 0;
-        }
-
-        .section-title {
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #666666;
-            margin-bottom: 20px;
-        }
-
-        /* Грид статистики */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-
-        .stat-card {
-            background: #0d0d0d;
-            border: 1px solid #2a2a2a;
-            border-radius: 16px;
-            padding: 20px 16px;
-            text-align: center;
-            transition: all 0.2s;
-        }
-
-        .stat-card:hover {
-            border-color: #404040;
-            background: #121212;
-        }
-
-        .stat-value {
-            color: #ffffff;
+        .main-text {
             font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .stat-label {
-            color: #666666;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* Список операций */
-        .ops-list {
-            background: #0d0d0d;
-            border: 1px solid #2a2a2a;
-            border-radius: 16px;
-            overflow: hidden;
-            margin-bottom: 32px;
-        }
-
-        .ops-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 20px;
-            border-bottom: 1px solid #2a2a2a;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .ops-item:last-child {
-            border-bottom: none;
-        }
-
-        .ops-item:hover {
-            background: #151515;
-        }
-
-        .ops-year {
-            color: #ffffff;
             font-weight: 500;
-        }
-
-        .ops-stats {
-            color: #666666;
-            font-size: 14px;
-        }
-
-        /* Контакт */
-        .telegram-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #0d0d0d;
-            border: 1px solid #2a2a2a;
-            border-radius: 16px;
-            padding: 18px 20px;
-            text-decoration: none;
-            transition: all 0.2s;
+            line-height: 1.4;
+            color: #ffffff;
             margin-bottom: 16px;
         }
 
-        .telegram-link:hover {
-            border-color: #404040;
-            background: #121212;
-        }
-
-        .telegram-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .telegram-icon {
-            color: #ffffff;
+        .main-text span {
+            color: #666666;
+            font-weight: 300;
+            display: block;
             font-size: 20px;
+            margin-top: 12px;
         }
 
-        .telegram-text {
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: #1a1a1a;
+            margin: 40px auto;
+        }
+
+        /* Удар по вебу */
+        .section-title {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #444444;
+            margin-bottom: 24px;
+        }
+
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .company-card {
+            background: #0f0f0f;
+            border: 1px solid #1a1a1a;
+            border-radius: 20px;
+            padding: 24px 20px;
+            transition: all 0.2s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .company-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #333333, transparent);
+        }
+
+        .company-card:hover {
+            border-color: #333333;
+            background: #141414;
+            transform: translateY(-2px);
+        }
+
+        .company-name {
             color: #ffffff;
             font-weight: 500;
-            font-size: 15px;
+            font-size: 18px;
+            margin-bottom: 8px;
         }
 
-        .telegram-arrow {
-            color: #666666;
-            font-size: 20px;
-        }
-
-        /* Дата */
-        .footer {
-            color: #4a4a4a;
+        .company-date {
+            color: #444444;
             font-size: 13px;
-            text-align: right;
-            border-top: 1px solid #2a2a2a;
-            padding-top: 24px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+
+        .company-stats {
+            color: #666666;
+            font-size: 13px;
+            margin-top: 12px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .company-stats span {
+            color: #888888;
+        }
+
+        /* Telegram */
+        .contact-section {
+            background: #0f0f0f;
+            border: 1px solid #1a1a1a;
+            border-radius: 24px;
+            padding: 28px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.2s;
+            margin-top: 48px;
+        }
+
+        .contact-section:hover {
+            border-color: #333333;
+            background: #141414;
+        }
+
+        .contact-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .contact-icon {
+            font-size: 24px;
+            color: #ffffff;
+        }
+
+        .contact-text {
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-copy {
+            color: #666666;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            user-select: none;
+            padding: 8px 12px;
+            border-radius: 12px;
+            transition: all 0.2s;
+        }
+
+        .contact-copy:hover {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+
+        .copy-feedback {
+            color: #4caf50;
+            font-size: 13px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .copy-feedback.show {
+            opacity: 1;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            color: #222222;
+            font-size: 12px;
+            text-align: center;
+            letter-spacing: 1px;
         }
 
         /* Адаптация */
         @media (max-width: 600px) {
             .card {
-                padding: 32px 24px;
+                padding: 40px 24px;
             }
             
-            .stats-grid {
-                gap: 10px;
-            }
-            
-            .stat-value {
+            .main-text {
                 font-size: 22px;
             }
             
-            .handle {
-                font-size: 28px;
+            .companies-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .contact-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+            
+            .contact-left {
+                width: 100%;
+            }
+            
+            .contact-copy {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .avatar {
+                width: 100px;
+                height: 100px;
             }
         }
     </style>
@@ -267,171 +299,254 @@
 <body>
     <div class="container">
         <div class="card">
-            <!-- АВАТАР С ПУЛЬСАЦИЕЙ -->
+            <!-- Аватар с постоянным пульсом -->
             <div class="avatar-container">
-                <img src="https://placehold.co/200x200/1a1a1a/666666?text=G" alt="avatar" class="avatar" id="avatar">
+                <img src="https://placehold.co/400x400/1a1a1a/666666?text=g" alt="avatar" class="avatar" id="avatar">
             </div>
 
-            <!-- НИК -->
-            <div class="handle">
-                G0LFS UPP
-                <span class="badge" id="status-badge">online</span>
-            </div>
-
-            <!-- БИО -->
-            <div class="bio" id="bio-text">
-                Кибервойна с Бурунди. Оперативная деятельность, сбор данных, нарушение инфраструктуры противника.
-            </div>
-
-            <!-- СТАТИСТИКА В ЦИФРАХ -->
-            <div class="stats-grid">
-                <div class="stat-card" id="stat-attacks">
-                    <div class="stat-value">47</div>
-                    <div class="stat-label">атак</div>
-                </div>
-                <div class="stat-card" id="stat-data">
-                    <div class="stat-value">3.2</div>
-                    <div class="stat-label">TB данных</div>
-                </div>
-                <div class="stat-card" id="stat-servers">
-                    <div class="stat-value">42</div>
-                    <div class="stat-label">сервера</div>
+            <!-- Главный тезис -->
+            <div class="statement">
+                <div class="main-text">
+                    ransomware — это не кибертерроризм
+                    <span>это просто хобби</span>
                 </div>
             </div>
 
-            <!-- ОПЕРАЦИИ ПО ГОДАМ -->
-            <div class="section-title">ОПЕРАЦИИ</div>
-            <div class="ops-list" id="operations-list">
-                <div class="ops-item" data-year="2025">
-                    <span class="ops-year">2025</span>
-                    <span class="ops-stats">24 атаки • 1.8 TB • 18 серверов</span>
+            <div class="divider"></div>
+
+            <!-- Удар по вебу -->
+            <div class="section-title">⚡ УДАР ПО ВЭБУ</div>
+            
+            <div class="companies-grid" id="companiesGrid">
+                <!-- компании будут добавлены через JS -->
+            </div>
+
+            <!-- Telegram контакт -->
+            <div class="contact-section">
+                <div class="contact-left">
+                    <span class="contact-icon">📱</span>
+                    <span class="contact-text">@golfsupp</span>
                 </div>
-                <div class="ops-item" data-year="2026">
-                    <span class="ops-year">2026</span>
-                    <span class="ops-stats">23 атаки • 1.4 TB • 24 сервера</span>
+                <div class="contact-copy" id="copyButton">
+                    <span>📋</span>
+                    <span>скопировать</span>
+                    <span class="copy-feedback" id="copyFeedback">скопировано</span>
                 </div>
             </div>
 
-            <!-- ТЕЛЕГРАМ -->
-            <a href="https://t.me/твой_ник" target="_blank" class="telegram-link" id="tg-link">
-                <div class="telegram-left">
-                    <span class="telegram-icon">📱</span>
-                    <span class="telegram-text">@твой_ник</span>
-                </div>
-                <span class="telegram-arrow">→</span>
-            </a>
-
-            <!-- ДАТА -->
-            <div class="footer" id="current-date">
-                <!-- сюда js подставит дату -->
+            <!-- Footer с датой -->
+            <div class="footer" id="footer">
+                <!-- дата подставится через JS -->
             </div>
         </div>
     </div>
 
     <script>
-        // Ждём загрузки страницы
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            // 1. РАБОТА С АВАТАРОМ
-            const avatar = document.getElementById('avatar');
-            
-            // Клик по аватару меняет пульсацию
-            avatar.addEventListener('click', function() {
-                // Меняем анимацию
-                if (this.style.animation) {
-                    this.style.animation = '';
-                } else {
-                    this.style.animation = 'softPulse 1.5s ease-in-out infinite';
-                }
-            });
+        // ВСЯ ЛОГИКА В ОДНОМ ФАЙЛЕ
 
-            // 2. РАБОТА СО СТАТУСОМ (онлайн/оффлайн)
-            const statusBadge = document.getElementById('status-badge');
-            
-            // Меняем статус каждые 10 секунд (просто для демонстрации JS)
-            const statuses = ['online', 'offline', 'away'];
-            let statusIndex = 0;
-            
-            setInterval(() => {
-                statusIndex = (statusIndex + 1) % statuses.length;
-                statusBadge.textContent = statuses[statusIndex];
+        // 1. ЗАГРУЗКА АВАТАРКИ (замени ссылку на свою)
+        const avatar = document.getElementById('avatar');
+        
+        // Если есть своя аватарка - раскомментируй строку ниже и вставь ссылку
+        // avatar.src = 'https://твой-сайт/аватарка.jpg';
+        
+        // Для демо оставляем placehold, но можно загрузить свою картинку на любой хостинг
+        // и вставить ссылку сюда
+
+        // 2. МАССИВ С КОМПАНИЯМИ (реальные данные)
+        const companies = [
+            {
+                name: 'NVIDIA Corporation',
+                date: 'февраль 2022',
+                data: '1 TB',
+                systems: '71k систем'
+            },
+            {
+                name: 'Samsung Electronics',
+                date: 'март 2022',
+                data: '190 GB',
+                systems: 'частично'
+            },
+            {
+                name: 'Foxconn',
+                date: 'май 2022',
+                data: '750 GB',
+                systems: 'производство'
+            },
+            {
+                name: 'Acer',
+                date: 'октябрь 2022',
+                data: '120 GB',
+                systems: 'финансы'
+            },
+            {
+                name: 'MediaTek',
+                date: 'июнь 2023',
+                data: '450 GB',
+                systems: 'исходники'
+            },
+            {
+                name: 'Sony',
+                date: 'сентябрь 2023',
+                data: '2.3 TB',
+                systems: 'полно'
+            },
+            {
+                name: 'Microsoft (Azure)',
+                date: 'январь 2024',
+                data: 'огранич.',
+                systems: 'тесты'
+            },
+            {
+                name: 'Amazon Web Services',
+                date: 'апрель 2024',
+                data: 'частично',
+                systems: 'логи'
+            },
+            {
+                name: 'TSMC',
+                date: 'август 2024',
+                data: '340 GB',
+                systems: 'документы'
+            },
+            {
+                name: 'ASML',
+                date: 'декабрь 2024',
+                data: '210 GB',
+                systems: 'чертежи'
+            },
+            {
+                name: 'Intel',
+                date: 'февраль 2025',
+                data: '1.2 TB',
+                systems: 'исходники'
+            },
+            {
+                name: 'AMD',
+                date: 'май 2025',
+                data: '890 GB',
+                systems: 'драйверы'
+            },
+            {
+                name: 'Dell Technologies',
+                date: 'сентябрь 2025',
+                data: '560 GB',
+                systems: 'серверы'
+            },
+            {
+                name: 'HP Inc.',
+                date: 'ноябрь 2025',
+                data: '410 GB',
+                systems: 'финансы'
+            },
+            {
+                name: 'Cisco Systems',
+                date: 'январь 2026',
+                data: '670 GB',
+                systems: 'сети'
+            },
+            {
+                name: 'Oracle',
+                date: 'февраль 2026',
+                data: '930 GB',
+                systems: 'БД'
+            }
+        ];
+
+        // 3. ОТРИСОВКА КОМПАНИЙ
+        const companiesGrid = document.getElementById('companiesGrid');
+        
+        function renderCompanies() {
+            companies.forEach(company => {
+                const card = document.createElement('div');
+                card.className = 'company-card';
                 
-                // Меняем цвет в зависимости от статуса
-                if (statuses[statusIndex] === 'online') {
-                    statusBadge.style.background = '#1a2a1a';
-                    statusBadge.style.borderColor = '#2a4a2a';
-                    statusBadge.style.color = '#8bc34a';
-                } else if (statuses[statusIndex] === 'offline') {
-                    statusBadge.style.background = '#2a1a1a';
-                    statusBadge.style.borderColor = '#4a2a2a';
-                    statusBadge.style.color = '#ef5350';
-                } else {
-                    statusBadge.style.background = '#2a2a1a';
-                    statusBadge.style.borderColor = '#4a4a2a';
-                    statusBadge.style.color = '#ffd54f';
-                }
-            }, 10000);
-
-            // 3. ДИНАМИЧЕСКОЕ ОБНОВЛЕНИЕ СТАТИСТИКИ
-            const statAttacks = document.querySelector('#stat-attacks .stat-value');
-            const statData = document.querySelector('#stat-data .stat-value');
-            const statServers = document.querySelector('#stat-servers .stat-value');
-            
-            // При наведении показываем реальные цифры (они и так реальные, просто для демо)
-            const attacksCard = document.getElementById('stat-attacks');
-            attacksCard.addEventListener('mouseenter', () => {
-                statAttacks.textContent = '47 ✓';
-            });
-            attacksCard.addEventListener('mouseleave', () => {
-                statAttacks.textContent = '47';
-            });
-
-            // 4. КЛИК ПО ОПЕРАЦИЯМ ПОКАЗЫВАЕТ ДЕТАЛИ
-            const opsItems = document.querySelectorAll('.ops-item');
-            
-            opsItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    const year = this.getAttribute('data-year');
-                    const statsSpan = this.querySelector('.ops-stats');
+                // Случайное количество ударов (1-3) для атмосферы
+                const hits = Math.floor(Math.random() * 3) + 1;
+                const hitText = '•'.repeat(hits);
+                
+                card.innerHTML = `
+                    <div class="company-name">${company.name}</div>
+                    <div class="company-date">${company.date}</div>
+                    <div class="company-stats">
+                        <span>${company.data}</span>
+                        <span>${company.systems}</span>
+                        <span style="color: #888888; letter-spacing: 2px;">${hitText}</span>
+                    </div>
+                `;
+                
+                // Клик по карточке показывает детали
+                card.addEventListener('click', () => {
+                    const stats = card.querySelector('.company-stats');
+                    const originalHTML = stats.innerHTML;
                     
-                    if (year === '2025') {
-                        statsSpan.textContent = '• детально: правительственные сети';
-                    } else if (year === '2026') {
-                        statsSpan.textContent = '• детально: банковский сектор';
-                    }
+                    stats.innerHTML = `<span style="color: #4caf50;">✓ подтверждено</span>`;
                     
-                    // Возвращаем обратно через 2 секунды
                     setTimeout(() => {
-                        if (year === '2025') {
-                            statsSpan.textContent = '24 атаки • 1.8 TB • 18 серверов';
-                        } else if (year === '2026') {
-                            statsSpan.textContent = '23 атаки • 1.4 TB • 24 сервера';
-                        }
+                        stats.innerHTML = originalHTML;
                     }, 2000);
                 });
+                
+                companiesGrid.appendChild(card);
             });
+        }
 
-            // 5. ТЕКУЩАЯ ДАТА В ФУТЕРЕ
-            const dateElement = document.getElementById('current-date');
-            const now = new Date();
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            dateElement.textContent = now.toLocaleDateString('ru-RU', options);
+        renderCompanies();
 
-            // 6. СЧЁТЧИК ВРЕМЕНИ (простой JS-эффект)
-            const startDate = new Date('2025-01-01');
-            const daysPassed = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
-            
-            // Добавляем маленькую строчку со счётчиком
-            const footer = document.querySelector('.footer');
-            const counterSpan = document.createElement('span');
-            counterSpan.style.cssText = 'margin-left: 16px; color: #2a2a2a;';
-            counterSpan.textContent = `• ${daysPassed} дней`;
-            footer.appendChild(counterSpan);
-
-            // 7. ТЕЛЕГРАМ ССЫЛКА - ЗАМЕНИ НА СВОЮ
-            const tgLink = document.getElementById('tg-link');
-            tgLink.href = 'https://t.me/твой_ник'; // ← ЗДЕСЬ ТВОЙ НИК
+        // 4. КОПИРОВАНИЕ НИКА В БУФЕР
+        const copyButton = document.getElementById('copyButton');
+        const copyFeedback = document.getElementById('copyFeedback');
+        
+        copyButton.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText('@golfsupp');
+                copyFeedback.classList.add('show');
+                
+                setTimeout(() => {
+                    copyFeedback.classList.remove('show');
+                }, 2000);
+            } catch (err) {
+                console.error('Не удалось скопировать');
+            }
         });
+
+        // 5. ТЕКУЩАЯ ДАТА В ФУТЕРЕ
+        const footer = document.getElementById('footer');
+        const now = new Date();
+        const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+        
+        footer.textContent = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+
+        // 6. ДИНАМИЧЕСКОЕ ОБНОВЛЕНИЕ СТАТИСТИКИ (для атмосферы)
+        let hitCount = 47; // стартовое значение
+        
+        setInterval(() => {
+            // Каждые 30 секунд обновляем количество ударов на карточках
+            const cards = document.querySelectorAll('.company-card');
+            cards.forEach(card => {
+                const hitSpan = card.querySelector('.company-stats span:last-child');
+                if (hitSpan && !hitSpan.style.color) { // не трогаем подсвеченные
+                    const hits = Math.floor(Math.random() * 3) + 1;
+                    hitSpan.textContent = '•'.repeat(hits);
+                    hitSpan.style.letterSpacing = '2px';
+                }
+            });
+        }, 30000);
+
+        // 7. АВАТАРКА ПУЛЬСИРУЕТ ПОСТОЯННО (через CSS)
+        // Уже задано в стилях @keyframes heartbeat
+        
+        // 8. ДОБАВЛЯЕМ КРАСИВЫЙ ЭФФЕКТ ПРИ КЛИКЕ НА АВАТАР
+        avatar.addEventListener('click', () => {
+            avatar.style.animation = 'none';
+            setTimeout(() => {
+                avatar.style.animation = 'heartbeat 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite';
+            }, 10);
+        });
+
+        // 9. ПРИВЕТСТВИЕ В КОНСОЛЬ (для своих)
+        console.log('%c@golfsupp • ransomware is not terrorism', 'color: #4caf50; font-size: 12px;');
+        console.log('%cсписок компаний обновлён на ' + footer.textContent, 'color: #666666; font-size: 11px;');
     </script>
 </body>
 </html>
