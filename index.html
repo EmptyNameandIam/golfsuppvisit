@@ -55,7 +55,6 @@
             object-fit: cover;
             border: 2px solid #1a1a1a;
             animation: heartbeat 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-            cursor: pointer;
             transition: border-color 0.2s;
         }
 
@@ -147,7 +146,6 @@
             border-radius: 24px;
             padding: 24px;
             transition: all 0.2s;
-            cursor: pointer;
         }
 
         .news-item:hover {
@@ -328,8 +326,27 @@
             <!-- NEWS -->
             <div class="section-title">НОВОСТИ ОПЕРАЦИИ BURUNDI</div>
             
-            <div class="news-list" id="newsList">
-                <!-- новости будут добавлены через JS -->
+            <div class="news-list">
+                <div class="news-item">
+                    <div class="news-date">2025</div>
+                    <div class="news-title">CyberGolf team возобновила свою деятельность</div>
+                    <div class="news-desc">После годичного перерыва команда возвращается к активной работе.</div>
+                    <div class="news-tag">#reborn</div>
+                </div>
+
+                <div class="news-item">
+                    <div class="news-date">январь 2026</div>
+                    <div class="news-title">Взломан интернет-провайдер SpidetNet (Burundi)</div>
+                    <div class="news-desc">Получен доступ к инфраструктуре провайдера. Данные абонентов, логи, маршрутизация.</div>
+                    <div class="news-tag">#access</div>
+                </div>
+
+                <div class="news-item">
+                    <div class="news-date">февраль 2026</div>
+                    <div class="news-title">Взломан сайт главной больницы Burundi</div>
+                    <div class="news-desc">CyberGolf support официально объявил кибервойну стране. Медицинские данные, системы записи, внутренняя документация.</div>
+                    <div class="news-tag">#declaration</div>
+                </div>
             </div>
 
             <!-- Telegram контакт -->
@@ -353,66 +370,7 @@
     </div>
 
     <script>
-        // ВСЯ ЛОГИКА В ОДНОМ ФАЙЛЕ
-
-        // 1. МАССИВ С НОВОСТЯМИ
-        const news = [
-            {
-                date: '2025',
-                title: 'CyberGolf team возобновила свою деятельность',
-                desc: 'После годичного перерыва команда возвращается к активной работе. Новые цели, новые горизонты.',
-                tag: '#reborn'
-            },
-            {
-                date: 'январь 2026',
-                title: 'Взломан интернет-провайдер SpidetNet',
-                desc: 'Burundi. Получен доступ к инфраструктуре провайдера. Данные абонентов, логи, маршрутизация.',
-                tag: '#access'
-            },
-            {
-                date: 'февраль 2026',
-                title: 'Взломан сайт главной больницы Burundi',
-                desc: 'CyberGolf support официально объявил кибервойну стране. Медицинские данные, системы записи, внутренняя документация.',
-                tag: '#declaration'
-            }
-        ];
-
-        // 2. ОТРИСОВКА НОВОСТЕЙ
-        const newsList = document.getElementById('newsList');
-        
-        function renderNews() {
-            news.forEach(item => {
-                const newsItem = document.createElement('div');
-                newsItem.className = 'news-item';
-                
-                newsItem.innerHTML = `
-                    <div class="news-date">${item.date}</div>
-                    <div class="news-title">${item.title}</div>
-                    <div class="news-desc">${item.desc}</div>
-                    <div class="news-tag">${item.tag}</div>
-                `;
-                
-                // Клик по новости показывает подтверждение
-                newsItem.addEventListener('click', function() {
-                    const originalHTML = this.innerHTML;
-                    this.innerHTML = `
-                        <div style="color: #4caf50; padding: 20px; text-align: center; font-weight: 500;">
-                            ✓ подтверждено
-                        </div>
-                    `;
-                    
-                    setTimeout(() => {
-                        this.innerHTML = originalHTML;
-                    }, 1500);
-                });
-                
-                newsList.appendChild(newsItem);
-            });
-        }
-
-        renderNews();
-
-        // 3. КОПИРОВАНИЕ НИКА В БУФЕР
+        // КОПИРОВАНИЕ НИКА В БУФЕР
         const copyButton = document.getElementById('copyButton');
         const copyFeedback = document.getElementById('copyFeedback');
         
@@ -429,28 +387,17 @@
             }
         });
 
-        // 4. ТЕКУЩАЯ ДАТА В ФУТЕРЕ
+        // ТЕКУЩАЯ ДАТА В ФУТЕРЕ
         const footer = document.getElementById('footer');
         const now = new Date();
         const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
         
         footer.textContent = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
 
-        // 5. АВАТАРКА - замени ссылку
+        // АВАТАРКА - замени ссылку на свою
         const avatar = document.getElementById('avatar');
-        
-        // Если хочешь свою аватарку:
         // avatar.src = 'https://твой-сайт/avatar.jpg';
-        
-        // При клике перезапускаем анимацию
-        avatar.addEventListener('click', () => {
-            avatar.style.animation = 'none';
-            setTimeout(() => {
-                avatar.style.animation = 'heartbeat 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite';
-            }, 10);
-        });
 
-        // 6. КОНСОЛЬ
         console.log('%c@golfsupp • война с Burundi', 'color: #4caf50; font-size: 12px;');
     </script>
 </body>
