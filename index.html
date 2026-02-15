@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>golfsupp • ransomware is not terrorism</title>
+    <title>golfsupp • cyber war • burundi</title>
     
     <!-- Только Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 680px;
             width: 100%;
         }
 
@@ -115,7 +115,7 @@
             margin: 40px auto;
         }
 
-        /* Удар по вебу */
+        /* Секция NEWS */
         .section-title {
             font-size: 13px;
             font-weight: 600;
@@ -123,66 +123,78 @@
             letter-spacing: 2px;
             color: #444444;
             margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .companies-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
+        .section-title::before {
+            content: '⚡';
+            color: #666666;
+            font-size: 16px;
+        }
+
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             margin-bottom: 48px;
         }
 
-        .company-card {
+        .news-item {
             background: #0f0f0f;
             border: 1px solid #1a1a1a;
-            border-radius: 20px;
-            padding: 24px 20px;
+            border-radius: 24px;
+            padding: 24px;
             transition: all 0.2s;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
         }
 
-        .company-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #333333, transparent);
-        }
-
-        .company-card:hover {
+        .news-item:hover {
             border-color: #333333;
             background: #141414;
-            transform: translateY(-2px);
+            transform: translateX(4px);
         }
 
-        .company-name {
-            color: #ffffff;
+        .news-date {
+            color: #666666;
+            font-size: 13px;
             font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .news-date::before {
+            content: '▌';
+            color: #4caf50;
+            font-size: 14px;
+        }
+
+        .news-title {
+            color: #ffffff;
             font-size: 18px;
+            font-weight: 500;
+            line-height: 1.5;
             margin-bottom: 8px;
         }
 
-        .company-date {
-            color: #444444;
-            font-size: 13px;
-            font-weight: 400;
-            letter-spacing: 0.3px;
-        }
-
-        .company-stats {
-            color: #666666;
-            font-size: 13px;
-            margin-top: 12px;
-            display: flex;
-            gap: 16px;
-        }
-
-        .company-stats span {
+        .news-desc {
             color: #888888;
+            font-size: 15px;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        .news-tag {
+            display: inline-block;
+            margin-top: 16px;
+            color: #4caf50;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
 
         /* Telegram */
@@ -269,11 +281,6 @@
                 font-size: 22px;
             }
             
-            .companies-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-            
             .contact-section {
                 flex-direction: column;
                 align-items: flex-start;
@@ -292,6 +299,10 @@
             .avatar {
                 width: 100px;
                 height: 100px;
+            }
+
+            .news-item {
+                padding: 20px;
             }
         }
     </style>
@@ -314,11 +325,11 @@
 
             <div class="divider"></div>
 
-            <!-- Удар по вебу -->
-            <div class="section-title">⚡ УДАР ПО ВЭБУ</div>
+            <!-- NEWS -->
+            <div class="section-title">НОВОСТИ ОПЕРАЦИИ BURUNDI</div>
             
-            <div class="companies-grid" id="companiesGrid">
-                <!-- компании будут добавлены через JS -->
+            <div class="news-list" id="newsList">
+                <!-- новости будут добавлены через JS -->
             </div>
 
             <!-- Telegram контакт -->
@@ -344,156 +355,64 @@
     <script>
         // ВСЯ ЛОГИКА В ОДНОМ ФАЙЛЕ
 
-        // 1. ЗАГРУЗКА АВАТАРКИ (замени ссылку на свою)
-        const avatar = document.getElementById('avatar');
-        
-        // Если есть своя аватарка - раскомментируй строку ниже и вставь ссылку
-        // avatar.src = 'https://твой-сайт/аватарка.jpg';
-        
-        // Для демо оставляем placehold, но можно загрузить свою картинку на любой хостинг
-        // и вставить ссылку сюда
-
-        // 2. МАССИВ С КОМПАНИЯМИ (реальные данные)
-        const companies = [
+        // 1. МАССИВ С НОВОСТЯМИ
+        const news = [
             {
-                name: 'NVIDIA Corporation',
-                date: 'февраль 2022',
-                data: '1 TB',
-                systems: '71k систем'
+                date: '2025',
+                title: 'CyberGolf team возобновила свою деятельность',
+                desc: 'После годичного перерыва команда возвращается к активной работе. Новые цели, новые горизонты.',
+                tag: '#reborn'
             },
             {
-                name: 'Samsung Electronics',
-                date: 'март 2022',
-                data: '190 GB',
-                systems: 'частично'
-            },
-            {
-                name: 'Foxconn',
-                date: 'май 2022',
-                data: '750 GB',
-                systems: 'производство'
-            },
-            {
-                name: 'Acer',
-                date: 'октябрь 2022',
-                data: '120 GB',
-                systems: 'финансы'
-            },
-            {
-                name: 'MediaTek',
-                date: 'июнь 2023',
-                data: '450 GB',
-                systems: 'исходники'
-            },
-            {
-                name: 'Sony',
-                date: 'сентябрь 2023',
-                data: '2.3 TB',
-                systems: 'полно'
-            },
-            {
-                name: 'Microsoft (Azure)',
-                date: 'январь 2024',
-                data: 'огранич.',
-                systems: 'тесты'
-            },
-            {
-                name: 'Amazon Web Services',
-                date: 'апрель 2024',
-                data: 'частично',
-                systems: 'логи'
-            },
-            {
-                name: 'TSMC',
-                date: 'август 2024',
-                data: '340 GB',
-                systems: 'документы'
-            },
-            {
-                name: 'ASML',
-                date: 'декабрь 2024',
-                data: '210 GB',
-                systems: 'чертежи'
-            },
-            {
-                name: 'Intel',
-                date: 'февраль 2025',
-                data: '1.2 TB',
-                systems: 'исходники'
-            },
-            {
-                name: 'AMD',
-                date: 'май 2025',
-                data: '890 GB',
-                systems: 'драйверы'
-            },
-            {
-                name: 'Dell Technologies',
-                date: 'сентябрь 2025',
-                data: '560 GB',
-                systems: 'серверы'
-            },
-            {
-                name: 'HP Inc.',
-                date: 'ноябрь 2025',
-                data: '410 GB',
-                systems: 'финансы'
-            },
-            {
-                name: 'Cisco Systems',
                 date: 'январь 2026',
-                data: '670 GB',
-                systems: 'сети'
+                title: 'Взломан интернет-провайдер SpidetNet',
+                desc: 'Burundi. Получен доступ к инфраструктуре провайдера. Данные абонентов, логи, маршрутизация.',
+                tag: '#access'
             },
             {
-                name: 'Oracle',
                 date: 'февраль 2026',
-                data: '930 GB',
-                systems: 'БД'
+                title: 'Взломан сайт главной больницы Burundi',
+                desc: 'CyberGolf support официально объявил кибервойну стране. Медицинские данные, системы записи, внутренняя документация.',
+                tag: '#declaration'
             }
         ];
 
-        // 3. ОТРИСОВКА КОМПАНИЙ
-        const companiesGrid = document.getElementById('companiesGrid');
+        // 2. ОТРИСОВКА НОВОСТЕЙ
+        const newsList = document.getElementById('newsList');
         
-        function renderCompanies() {
-            companies.forEach(company => {
-                const card = document.createElement('div');
-                card.className = 'company-card';
+        function renderNews() {
+            news.forEach(item => {
+                const newsItem = document.createElement('div');
+                newsItem.className = 'news-item';
                 
-                // Случайное количество ударов (1-3) для атмосферы
-                const hits = Math.floor(Math.random() * 3) + 1;
-                const hitText = '•'.repeat(hits);
-                
-                card.innerHTML = `
-                    <div class="company-name">${company.name}</div>
-                    <div class="company-date">${company.date}</div>
-                    <div class="company-stats">
-                        <span>${company.data}</span>
-                        <span>${company.systems}</span>
-                        <span style="color: #888888; letter-spacing: 2px;">${hitText}</span>
-                    </div>
+                newsItem.innerHTML = `
+                    <div class="news-date">${item.date}</div>
+                    <div class="news-title">${item.title}</div>
+                    <div class="news-desc">${item.desc}</div>
+                    <div class="news-tag">${item.tag}</div>
                 `;
                 
-                // Клик по карточке показывает детали
-                card.addEventListener('click', () => {
-                    const stats = card.querySelector('.company-stats');
-                    const originalHTML = stats.innerHTML;
-                    
-                    stats.innerHTML = `<span style="color: #4caf50;">✓ подтверждено</span>`;
+                // Клик по новости показывает подтверждение
+                newsItem.addEventListener('click', function() {
+                    const originalHTML = this.innerHTML;
+                    this.innerHTML = `
+                        <div style="color: #4caf50; padding: 20px; text-align: center; font-weight: 500;">
+                            ✓ подтверждено
+                        </div>
+                    `;
                     
                     setTimeout(() => {
-                        stats.innerHTML = originalHTML;
-                    }, 2000);
+                        this.innerHTML = originalHTML;
+                    }, 1500);
                 });
                 
-                companiesGrid.appendChild(card);
+                newsList.appendChild(newsItem);
             });
         }
 
-        renderCompanies();
+        renderNews();
 
-        // 4. КОПИРОВАНИЕ НИКА В БУФЕР
+        // 3. КОПИРОВАНИЕ НИКА В БУФЕР
         const copyButton = document.getElementById('copyButton');
         const copyFeedback = document.getElementById('copyFeedback');
         
@@ -510,33 +429,20 @@
             }
         });
 
-        // 5. ТЕКУЩАЯ ДАТА В ФУТЕРЕ
+        // 4. ТЕКУЩАЯ ДАТА В ФУТЕРЕ
         const footer = document.getElementById('footer');
         const now = new Date();
         const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
         
         footer.textContent = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
 
-        // 6. ДИНАМИЧЕСКОЕ ОБНОВЛЕНИЕ СТАТИСТИКИ (для атмосферы)
-        let hitCount = 47; // стартовое значение
+        // 5. АВАТАРКА - замени ссылку
+        const avatar = document.getElementById('avatar');
         
-        setInterval(() => {
-            // Каждые 30 секунд обновляем количество ударов на карточках
-            const cards = document.querySelectorAll('.company-card');
-            cards.forEach(card => {
-                const hitSpan = card.querySelector('.company-stats span:last-child');
-                if (hitSpan && !hitSpan.style.color) { // не трогаем подсвеченные
-                    const hits = Math.floor(Math.random() * 3) + 1;
-                    hitSpan.textContent = '•'.repeat(hits);
-                    hitSpan.style.letterSpacing = '2px';
-                }
-            });
-        }, 30000);
-
-        // 7. АВАТАРКА ПУЛЬСИРУЕТ ПОСТОЯННО (через CSS)
-        // Уже задано в стилях @keyframes heartbeat
+        // Если хочешь свою аватарку:
+        // avatar.src = 'https://твой-сайт/avatar.jpg';
         
-        // 8. ДОБАВЛЯЕМ КРАСИВЫЙ ЭФФЕКТ ПРИ КЛИКЕ НА АВАТАР
+        // При клике перезапускаем анимацию
         avatar.addEventListener('click', () => {
             avatar.style.animation = 'none';
             setTimeout(() => {
@@ -544,9 +450,8 @@
             }, 10);
         });
 
-        // 9. ПРИВЕТСТВИЕ В КОНСОЛЬ (для своих)
-        console.log('%c@golfsupp • ransomware is not terrorism', 'color: #4caf50; font-size: 12px;');
-        console.log('%cсписок компаний обновлён на ' + footer.textContent, 'color: #666666; font-size: 11px;');
+        // 6. КОНСОЛЬ
+        console.log('%c@golfsupp • война с Burundi', 'color: #4caf50; font-size: 12px;');
     </script>
 </body>
 </html>
